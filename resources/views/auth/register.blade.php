@@ -66,21 +66,39 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Nomor Hp</label>
+                            <label for="no-hp" class="col-md-4 control-label">No HP</label>
+
                             <div class="col-md-6">
-                                <input id="nohp" type="text" class="form-control" name="nohp" placeholder="Alamat" ">
+                                <input type="text" class="form-control" name="nohp" value="{{ old('nohp') }}">
+                                @if ($errors->has('nohp'))
+                                   <span class="help-block">
+                                      <strong>{{ $errors->first('nohp') }}</strong>
+                                   </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Alamat</label>
+                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+
                             <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Alamat" ">
+                                <input type="text" class="form-control" name="alamat" value="{{ old('alamat') }}">
+                                @if ($errors->has('alamat'))
+                                   <span class="help-block">
+                                      <strong>{{ $errors->first('alamat') }}</strong>
+                                   </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Kode Pos</label>
+                            <label for="kodepos" class="col-md-4 control-label">Kodepos</label>
+
                             <div class="col-md-6">
-                                <input id="kodepos" type="text" class="form-control" name="kodepos" placeholder="Alamat" ">
+                                <input type="text" class="form-control" name="kodepos" value="{{ old('kodepos') }}">
+                                @if ($errors->has('kodepos'))
+                                   <span class="help-block">
+                                      <strong>{{ $errors->first('kodepos') }}</strong>
+                                   </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">

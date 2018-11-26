@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Customer;
 use App\Produk;
+use App\User;
 
 class Authentikasi extends Controller
 {     
     public function logout(){        
         Session::flush();
        
-        return RedirectTo('home');
+        return redirect('login')->with('alert','anda sudah logout!');
     }
     public function login(Request $request){
         $email = $request->email;
@@ -47,28 +48,29 @@ class Authentikasi extends Controller
             }                   
     }
 
+        
 
-    public function register(Request $request){
-        return view('auth.register');
-    }
-    public function registerPost(Request $request){
+    protected function create(Request $request)
+    {
         $this->validate($request, [
-            'name' => 'required|min:4',
+           'name' => 'required|min:4',
             'email' => 'required|min:4|email|unique:users',
             'password' => 'required',
-            'confirmation' => 'required|same:password',
+            'password_confirmation' => 'required|same:password',
             'nohp' => 'required',
             'alamat' => 'required',
             'kodepos' => 'required',
         ]);
-        $data =  new Customer();
-        $data->nama = $request->name;
+        
+        $data = new User();
+        $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($request->password);        
         $data->nohp = $request->nohp;
         $data->alamat = $request->alamat;
         $data->kodepos = $request->kodepos;
         $data->save();
-        return redirect('login')->with('alert-success','Kamu berhasil Register');
+        
+        return redirect('login')->with('alert-success','anda berhasil registrasi');
     }
 }

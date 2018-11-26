@@ -44,7 +44,7 @@
                 <input type="text" class="form-control" style="width:100%;"placeholder="Search...">
             </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url('/home') }}">Home</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="#about">Best Produk</a></li>
             <li><a href="#contact">How to buy</a></li>
             <li class="dropdown">

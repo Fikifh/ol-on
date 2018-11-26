@@ -17,7 +17,8 @@ class Paket extends Migration
 			$table->string('nama_paket', 128); // create column nama			
 			$table->text('desc'); // create column email                                          
 			$table->timestamps(); // create column created_at dan updated_at (default laravel)
-        });        
+        });  
+        
     }
 
     /**

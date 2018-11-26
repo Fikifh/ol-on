@@ -83,30 +83,23 @@
         <div class="panel panel-success">
                 <div class="panel-heading"><span class="glyphicon glyphicon-shopping-cart"></span> Cart !</div>
                 <div class="panel-body">
-                    <table class="table">
+                    <table class="table">                        
                         <tr class="success">
                             <th>Barang </th>
                             <th>Jumlah </th>
                         </tr>
+                        @foreach ($keranjang as $carts)  
                         <tr>
-                            <td>Krupuk</td>
-                            <td><span class="badge badge-success">2</span></td>
+                            <td>{{$carts->nama_prod}}</td>
+                            <td><span class="badge badge-success">{{$carts->qtt}}</span></td>
                         </tr>
-                        <tr>
-                            <td>Nang-nginang</td>
-                            <td><span class="badge badge-success">5</span></td>
-                        </tr>
-                        <tr>
-                            <td>Ghebuk</td>
-                            <td><span class="badge badge-success">3</span></td>
-                        </tr>
+                        @endforeach
                         <tr>
                             <td class="success"></td>
-                            <td class="success"><span class="label label-success">Rp. 10.000 </span></td>
-                        </tr>
-                    </table>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal"> View Cart </button>
-                    <button type="button" class="btn btn-success btn-sm"  >Chek Out </button>
+                            <td class="success"><span class="label label-success">{{$count}}</span></td>
+                        </tr>                        
+                    </table>                    
+                    <a href="{{url('keranjang/'.Auth::user()->id)}}"><button type="button" class="btn btn-success btn-sm"  >Chek Out </button>
                 </div>
             </div>
         </div>

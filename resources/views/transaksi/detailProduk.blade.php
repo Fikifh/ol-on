@@ -18,12 +18,26 @@
                 </p>
             </div>                                                    
         </div>
-        <div class="btn btn-warning" style="margin-bottom:17px;">
-            <a href={{ url('beli/'.$ProdDetail->id) }}><span class="glyphicon glyphicon-shopping-cart"> Beli</span></a>
+        @if (Auth::guest())
+            <div class="btn btn-warning" style="margin-bottom:17px;">           
+                <a href={{ url('login') }}><span class="glyphicon glyphicon-shopping-cart"> beli </span></a>
+            </div>
+        @else
+        <div class="col">
+            <form method="POST" class="beli" action="{{ url('beli/'.$ProdDetail->id.'/'.Auth::user()->id) }}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-warning">
+                   <i class="glyphicon glyphicon-shopping-cart"></i> Beli                    
+                </button>
+            </form>
+            <form class="beli" method="POST" action="{{ url('keranjang/'.$ProdDetail->id.'/'.Auth::user()->id) }}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary">
+                   <i class="glyphicon glyphicon-shopping-cart"></i> Keranjang                    
+                </button>
+            </form>
         </div>
-        <div class="btn btn-warning" style="margin-bottom:17px;">
-            <a href={{ url('beli/'.$ProdDetail->id) }}><span class="glyphicon glyphicon-shopping-cart"> Keranjang</span></a>
-        </div>
+        @endif
     </div>
     <!--akhir row-->
     </div>

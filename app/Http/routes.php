@@ -16,8 +16,8 @@ Route::get('welcome', function(){
    return view('welcome'); 
 });
 
-Route::post('user/login', 'Authentikasi@loginPost');
-Route::get('user/login', 'Authentikasi@login');
+Route::post('login', 'Authentikasi@loginPost');
+Route::get('login', 'Authentikasi@login');
 Route::get('user/register', 'Authentikasi@register');
 Route::post('user/register', 'Authentikasi@registerPost');
 
@@ -27,6 +27,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/detailproduk/{id}', 'dashboardController@detailproduk');
-Route::get('/beli/{id}', 'dashboardController@beli');
+Route::post('/beli/{id}/{session}', 'dashboardController@beli');
+Route::post('/keranjang/{id}/{user}', 'dashboardController@keranjang');
+Route::get('/keranjang/{user}', 'dashboardController@getKeranjang');
+Route::post('/checkout', 'transaksiController@checkout');
 
-
+Route::get('/hapusbarang/{id}/{user}', 'transaksiController@hapusbarang');

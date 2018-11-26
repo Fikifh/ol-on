@@ -22,7 +22,12 @@ class Produk extends Migration
                         $table->integer('id_cus');
                         
 			$table->timestamps(); // create column created_at dan updated_at (default laravel)
-        });         //
+        });   
+//        Schema::table('carts', function($table){
+//           $table->foreign('id')->references('idcus')                   
+//                   ->onUpdate('cascade')
+//                   ->onDelete('cascade');
+//        });
     }
 
     /**
