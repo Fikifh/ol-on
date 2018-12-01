@@ -3,22 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/routes.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/auth/login.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Produk.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Customer.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/layouts/app.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/Controllers/dashboardController.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/welcome.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/User.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/Controllers/Controller.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/default.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/Controllers/customerController.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/Controllers/Auth/PasswordController.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/public/style.css</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/home.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/resources/views/profil.blade.php</file>
-            <file>file:/D:/LEARN/Laravel/pusatoleholehnusantara/app/Http/Controllers/Auth/AuthController.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Admin.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/transaksi/bayar.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Cart.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/layouts/app.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Http/Controllers/transaksiController.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/transaksi/keranjang.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Http/Controllers/Authentikasi.php</file>
+            <file>file:/D:/LEARN/Ol-on/database/migrations/2018_11_26_100744_Admin.php</file>
+            <file>file:/D:/LEARN/Ol-on/public/style.css</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/transaksi/strukTagihan.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/homenotlogin.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Customer.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/auth/login.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Http/routes.php</file>
+            <file>file:/D:/LEARN/Ol-on/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Http/Controllers/homeController.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/auth/register.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/User.php</file>
+            <file>file:/D:/LEARN/Ol-on/database/migrations/2018_11_25_023031_Cart.php</file>
+            <file>file:/D:/LEARN/Ol-on/database/migrations/2018_11_11_235744_produk.php</file>
+            <file>file:/D:/LEARN/Ol-on/app/Http/Controllers/dashboardController.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/transaksi/detailProduk.blade.php</file>
+            <file>file:/D:/LEARN/Ol-on/resources/views/home.blade.php</file>
         </group>
     </open-files>
 </project-private>

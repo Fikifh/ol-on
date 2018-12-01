@@ -33,3 +33,5 @@ Route::get('/keranjang/{user}', 'dashboardController@getKeranjang');
 Route::post('/checkout', 'transaksiController@checkout');
 
 Route::get('/hapusbarang/{id}/{user}', 'transaksiController@hapusbarang');
+
+Route::post('/bayar/{user}', 'transaksiController@bayar');
