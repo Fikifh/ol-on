@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="alamatPenerima">Kode Pos</label>
                     <input type="text" class="form-control" value="{{$pembeli->kodepos}}" id="kode pos" name="kodepos" placeholder="Masukan Kode Pos">
-                </div>                                          
+                </div>                                                         
                 <button type="submit" style="margin: 5px;" class="btn btn-primary">Checkout</button>
             </form>
         </div>

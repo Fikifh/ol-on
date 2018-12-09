@@ -35,3 +35,27 @@ Route::post('/checkout', 'transaksiController@checkout');
 Route::get('/hapusbarang/{id}/{user}', 'transaksiController@hapusbarang');
 
 Route::post('/bayar/{user}', 'transaksiController@bayar');
+
+Route::get('/struk/{idcus}', 'transaksiController@getStruk');
+Route::post('/bukti/bayar/{id}', 'transaksiController@uploadBukti');
+Route::post('/produk/konfirmasi-sampai/{idcus}', 'transaksiController@konfirmSampai');
+
+
+//////INNI ROUTE UNTUK ADMIN
+Route::get('/admin', 'adminController@home');
+Route::get('/admin/form/produk', 'adminController@getFormProduk');
+Route::post('/admin/produk', 'adminController@addProduk');
+//Route::get('/admin/produk/{filename}');
+Route::get('/admin/produk-order', 'adminController@getOrdered');
+Route::post('/admin/resi/kurir/{idcus}', 'adminController@postResiKurir');
+
+Route::get('/admin/produk-edit/{id}', 'adminController@editProdukForm');
+Route::post('/admin/produk-edit/{id}', 'adminController@editProduk');
+
+Route::get('/admin/produk-hapus/{id}', 'adminController@hapusProduk');
+
+
+
+
+//API KURIR
+Route::get('/kurir', 'apiController@getProvice');

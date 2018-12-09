@@ -3,14 +3,8 @@
 @section('content')
 
 <!-- CONTAINER -->
-<div class="container">
- <!-- baris pertama -->
-<div class='row'>
-        <div class='col-sm-12'>
-            <img src="{{asset('images/logo.png')}}" class="col-sm-2 img-responsive"style="margin-top: 58px; margin-bottom: 10px;">
-        </div>
-</div>
-<!-- akhir baris pertama -->
+<div class="container" style="margin-top: 60px">
+
 <!-- baris kedua -->
     <div class="row">
         <div class="col-sm-8 col-xs-12">
@@ -28,42 +22,21 @@
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="{{asset('images/logo.png')}}">
+                            <img class="=slide" src="{{asset('images/logo.png')}}">
                             <div class="carousel-caption">
-                              <h3>Rupa yang Unik</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              </p>
+                              <h3>Rupa yang Unik</h3>                                 
                             </div>
                         </div>
                         <div class="item">
-                            <img src="{{asset('images/logo.png')}}">
+                            <img class="=slide" src="{{asset('images/oleh3.jpg')}}">
                             <div class="carousel-caption">
-                              <h3>Cita Rasa yang Khas</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              </p>
+                              <h3>Cita Rasa yang Khas</h3>                              
                             </div>
                         </div>
                         <div class="item">
-                            <img src="{{asset('images/logo.png')}}">
+                            <img class="=slide" src="{{asset('images/oleh4.jpg')}}">
                             <div class="carousel-caption">
-                              <h3>Berbagai Daerah</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              Lorem ipsum dolor sit amet consectetur…
-                              </p>
+                              <h3>Berbagai Daerah</h3>                              
                             </div>
                         </div>
                     </div>
@@ -104,20 +77,22 @@
     </div>
 <!-- akhir baris kedua -->
 <!--baris ketiga-->
-    <div class="row">
+<div class="row">
         <!--daftar produk-->
-        <div class="panel" style="margin-bottom:50px;">
+        <div class="prod panel" style="margin-bottom:50px;">
             @foreach ($produk as $prod)
-            <div class="col col-sm-3 panel-heading" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                <div class="panel-body">
-                    <a href="localhost:8000/detailproduk/{{$prod->id}}">
-                        <img class="col-sm-11" src="{{asset('images/oleh3.jpg')}}">
-                    </a>
-                </div>                                
-                <a href={{ url('detailproduk/'.$prod->id) }}>               
-                    <h4 class="harga-nama">{{$prod->harga_prod}}</h4>
-                    <h4 class="harga-nama">{{$prod->nama_prod}}</h4>                    
-                </a>                                
+            <div class="prod-box col col-sm-3 panel-heading">                    
+                <div class="gambar-prod">
+                    <a href="{{ url('detailproduk/'.$prod->id) }}">
+                        <img style="width:100%; height:160px;" class="col-sm-11 prod-gbr" src="{{asset('img/'.$prod->foto1_prod) }}">
+                    </a>  
+                </div> 
+                <div class="prod-title">                                                                       
+                    <a href={{ url('detailproduk/'.$prod->id) }}>                                      
+                        <h4 style="text-decoration:none" class="harga">{{$prod->harga_prod}}</h4>
+                        <h4 style="text-decoration:none" class="harga-nama">{{$prod->nama_prod}}</h4>                                            
+                    </a>                                
+                </div>
             </div>  
             @endforeach          
         </div>       

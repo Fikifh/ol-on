@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Session;
 use App\Customer;
 use App\Produk;
 use App\User;
+use Laravolt\Indonesia\Facade;
+use Auth;
 
 class Authentikasi extends Controller
 {     
     public function logout(){        
         Session::flush();
-       
+        Auth::logout();       
         return redirect('login')->with('alert','anda sudah logout!');
     }
     public function login(Request $request){
@@ -27,8 +29,8 @@ class Authentikasi extends Controller
             if(Hash::check($password,$data->password)){
                 Session::put('name',$data->name);
                 Session::put('email',$data->email);
-                Session::put('login',TRUE);
-                return redirect('home');
+                Session::put('login',TRUE);                
+                return redirect('/');               
             }
             else{
                 return redirect('login')->with('alert','Password atau Email, Salah !'.Hash::check($password,$data->password));
@@ -43,9 +45,17 @@ class Authentikasi extends Controller
 
         if(Session::get('login')){
            return redirect('/')->with('alert','anda sudah login');
-        }else{
+        }else{           
                 return view('auth.login');
             }                   
+    }
+
+    public function showRegistrationForm(){
+        $provinsi = Facade::allProvinces(); 
+        $kabupaten = Facade::paginateCities($numRows = 514);
+        $kecamatan = Facade::paginateDistricts($numRows = 2093);
+        $desa = Facade::paginateVillages($numRows = 5043);        
+        return view('auth.register', ['provinsi'=>$provinsi, 'kabupaten'=>$kabupaten,'kecamatan'=>$kecamatan, 'desa'=>$desa]);
     }
 
         
@@ -58,7 +68,10 @@ class Authentikasi extends Controller
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
             'nohp' => 'required',
-            'alamat' => 'required',
+            'provinsi' => 'required',
+            'kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'desa' => 'required',
             'kodepos' => 'required',
         ]);
         
@@ -67,10 +80,12 @@ class Authentikasi extends Controller
         $data->email = $request->email;
         $data->password = bcrypt($request->password);        
         $data->nohp = $request->nohp;
-        $data->alamat = $request->alamat;
+        $data->provinsi = $request->provinsi;
+        $data->kabupaten = $request->kabupaten;
+        $data->kecamatan = $request->kecamatan;
+        $data->desa = $request->desa;
         $data->kodepos = $request->kodepos;
-        $data->save();
-        
+        $data->save();        
         return redirect('login')->with('alert-success','anda berhasil registrasi');
     }
 }

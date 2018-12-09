@@ -11,6 +11,15 @@
             return false;
         }
     }
+    function cekTagihan(){
+        var pesan = "Silahkan Lakukan Pembayaran terlebih dahulu di Tagihan anda !!"
+        var pl = alert(pesan);
+        if(pl){
+            return false;
+        }else{          
+            return false;
+        }
+    }
 </script>
 <div class="container" style="margin-top: 70px;margin-bottom: 10px;">
     <div class="row">
@@ -59,35 +68,10 @@
           </div>
           <div class="form-group col-md-4">
             <label for="alamat">Alamat</label>
-            <input name="alamat" value="{{$pelanggan->alamat}}"  type="address" class="form-control" id="alamat" placeholder="Alamat">
+            <input name="alamat" value="{{$pelanggan->provinsi.' '.$pelanggan->kabupaten.' '.$pelanggan->kecamatan.' '.$pelanggan->desa.' '.$pelanggan->kodepos.' '}}"  type="address" class="form-control" id="alamat" value="{{$pelanggan->provinsi.' '.$pelanggan->kabupaten.' '.$pelanggan->kecamatan.' '.$pelanggan->desa.' '.$pelanggan->kodepos.' '}}">
           </div>
         </div>        
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="inputCity">Kota/Kab.</label>
-            <input name="kota" type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="prov">Provinsi</label>
-            <select name="prov" id="prov" class="form-control">
-              <option selected>Choose...</option>
-              <option>Jawa Barat</option>
-              <option>Jawa Tengah</option>
-              <option>Jawa Timur</option>
-              <option>Kalimantan Timur</option>
-              <option>Sulawesi</option>
-              <option>Banka Belitung</option>
-              <option>Aceh</option>
-              <option>Maluku</option>
-              <option>NTT</option>
-              <option>NTB</option>
-              <option>Papua</option>                           
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Kode Pos</label>
-            <input name="kodepos" value="{{$pelanggan->kodepos}}" type="text" class="form-control" id="inputZip">
-          </div>
+        <div class="form-row">        
           <div class="form-group col-md-2">
             <label for="kurir">Kurir</label>
             <select name="kurir" id="kurir" class="form-control">
@@ -97,8 +81,23 @@
               @endforeach
             </select>
           </div>
-        </div>           
-        <button type="submit" class="col-md-1 btn btn-primary glyphicon glyphicon-shopping-cart"> Bayar</button>
+          <div class="form-group col-md-4">
+                <label for="kurir">Catatan</label>
+                <textarea name="catatan" type="text" class="form-control">  
+                </textarea>              
+            </div>
+            <div class="form-group col-md-6 ">                                
+            </div>            
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5">
+                @if($transaksi)           
+                <button onclick="return cekTagihan()" type="submit" class="col-md-3 btn btn-primary glyphicon glyphicon-shopping-cart"> Bayar</button>            
+                @else
+                    <button type="submit" class="col-md-3 btn btn-primary glyphicon glyphicon-shopping-cart"> Bayar</button>    
+                @endif
+            </div>
+        </div>       
       </form> 
 </div>
 @endsection

@@ -78,20 +78,73 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+                            <label for="provinsi" class="col-md-4 control-label">Provinsi</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="alamat" value="{{ old('alamat') }}">
-                                @if ($errors->has('alamat'))
-                                   <span class="help-block">
-                                      <strong>{{ $errors->first('alamat') }}</strong>
-                                   </span>
-                                @endif
+                                <select class="form-control" name="provinsi" value="{{ old('alamat') }}">
+                                    <option>Pilih Provinsi</option>
+                                    @foreach ($provinsi as $provinsis)                                                                            
+                                    <option value="{{$provinsis->name}}" >{{$provinsis->name}}</option>
+                                    @endforeach
+                                    @if ($errors->has('provinsi'))
+                                    <span class="help-block">
+                                      <strong>{{ $errors->first('provinsi') }}</strong>
+                                    </span>
+                                    @endif
+                                </select>                                
                             </div>
                         </div>
                         <div class="form-group">
+                                <label for="kabupaten" class="col-md-4 control-label">kabupaten</label>    
+                                <div class="col-md-6">
+                                    <select class="form-control" name="kabupaten" value="{{ old('alamat') }}">
+                                        <option>Pilih kabupaten</option>
+                                        @foreach ($kabupaten as $kabupatens)                                                                                    
+                                            <option value="{{$kabupatens->name}}" >{{$kabupatens->name}}</option>
+                                        @endforeach
+                                        @if ($errors->has('kabupaten'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('kabupaten') }}</strong>
+                                        </span>
+                                        @endif
+                                    </select>                                
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kecamatan" class="col-md-4 control-label">Kecamatan</label>    
+                                <div class="col-md-6">
+                                    <select class="form-control" name="kecamatan" value="{{ old('alamat') }}">
+                                        <option>Pilih kecamatan</option>
+                                        @foreach ($kecamatan as $kecamatans)                                            
+                                            <option value="{{$kecamatans->name}}" >{{$kecamatans->name}}</option>                                            
+                                        @endforeach
+                                        @if ($errors->has('kecamatan'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('kecamatan') }}</strong>
+                                        </span>
+                                        @endif
+                                    </select>                                
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <label for="desa" class="col-md-4 control-label">Desa/Kelurahan</label>    
+                                <div class="col-md-6">
+                                    <select class="form-control" name="desa" value="{{ old('alamat') }}">
+                                        <option>Pilih desa</option>
+                                        @foreach ($desa as $desas)                                                                                    
+                                            <option value="{{$desas->name}}" >{{$desas->name}}</option> 
+                                        @endforeach
+                                        @if ($errors->has('desa'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('desa') }}</strong>
+                                        </span>
+                                        @endif
+                                    </select>                                
+                                </div>
+                            </div>
+                                              
+                        <div class="form-group">
                             <label for="kodepos" class="col-md-4 control-label">Kodepos</label>
-
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="kodepos" value="{{ old('kodepos') }}">
                                 @if ($errors->has('kodepos'))

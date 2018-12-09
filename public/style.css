@@ -8,9 +8,56 @@
   margin:15px; 
   background-color: white; 
 }
+.prod-box{	
+	margin: 10px;
+	background-color: white;
+	color: white;
+	box-shadow: 0;
+	border: 0.5px solid whitesmoke;
+}
+.prod-box:hover{	
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition: border-color 0.6s ease;
+	color: crimson;
+}
+.prod-box::after{
+	box-shadow: 0;
+	background-color: darkslategrey;
+}
+.harga h4{
+	text-decoration-line: none;
+}
+.harga-nama h4{
+	text-decoration-line: none;
+}
+.harga:hover{
+	color: rgb(11, 253, 213);
+	text-decoration-line: none;
+}
+.harga-nama:hover{
+	color: rgb(11, 253, 213);
+	text-decoration-line: none;
+}
+.prod-gbr{
+	height: 100%;
+	width: 100%;
+}
+.line{
+	border-bottom: 1px solid rgb(32, 192, 101) ;
+}
+.line-full{
+	border: 1px solid rgb(32, 192, 101) ;
+	padding: 15px;
+}
 .bungkus-produk{
-	text-align: center;
-	
+	text-align: center;	
+}
+.bts-foot{
+	margin-top: 30px;
+}
+.batas{
+	margin-top: 60px;
 }
 .beli{
     float: left;
@@ -19,10 +66,24 @@
 .meta-prod{
 	background-color: white;
 }
-
-.harga-nama{
+.slide{
+	width: 100%;
+	height: 100%;
+}
+.item{
+	padding-left: 100px;
+}
+.harga{
+	margin: 10px;
 	text-align: center;
 	color: black;
+	margin-top: 20px;
+	padding-top: 20px;	
+}
+.harga-nama{		
+	text-align: center;
+	color: black;
+	text-decoration: bold;
 }
 body{
 	background-color: white;

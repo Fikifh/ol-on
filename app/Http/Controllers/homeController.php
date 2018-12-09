@@ -37,7 +37,22 @@ class HomeController extends Controller
         foreach($keranjang as $total){
             $jumlah = $total->harga_prod * $total->qtt;
             $count = $count+$jumlah;
-        }                
-        return view('home', ['produk'=>$produk,'count'=>$count])->with('keranjang',$keranjang);        
+        }
+        
+        $transaksi =  DB::table('transaksis')
+            ->join('users', 'users.id', '=', 'transaksis.id_cus')
+            ->join('produks', 'produks.id', '=', 'transaksis.id_prod')
+            ->where([
+            ['transaksis.id_cus','=',$idcus],
+            ['transaksis.status','=',1],
+            ])            
+            ->select('transaksis.*','transaksis.id', 'produks.*', 'produks.harga_prod', 'users.*', 'users.name', 'users.nohp', 'users.alamat', 'users.kodepos')
+            ->get();  
+        $tagihan = 0;
+        foreach($transaksi as $total){
+            $jumlah = $total->status;
+            $tagihan = $tagihan+$jumlah;
+        }               
+        return view('home', ['produk'=>$produk,'count'=>$count], ['tagihan'=>$tagihan])->with('keranjang',$keranjang);        
     }
 }

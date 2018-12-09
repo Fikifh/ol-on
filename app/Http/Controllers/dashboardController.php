@@ -49,7 +49,7 @@ class dashboardController extends Controller
             ->join('users', 'users.id', '=', 'carts.idcus')
             ->join('produks', 'produks.id', '=', 'carts.idprod')
             ->where('carts.idcus','=',$idcus)            
-            ->select('produks.*', 'carts.id', 'carts.*', 'users.name', 'users.nohp', 'users.alamat', 'users.kodepos')
+            ->select('produks.*', 'carts.id', 'carts.*', 'users.name', 'users.nohp', 'users.provinsi', 'users.kabupaten', 'users.kecamatan', 'users.desa','users.kodepos')
             ->get();      
         $count =0;
         foreach($keranjang as $total){
@@ -58,7 +58,19 @@ class dashboardController extends Controller
         }
         $kurir = DB::table('kurirs')->select('*')->get();
         $pelanggan = User::where('id', $idcus)->first();
-        return view('transaksi.keranjang',['pelanggan'=>$pelanggan,'kurir'=>$kurir], ['count'=>$count])->with('keranjang',$keranjang);
+    
+        $transaksi =  DB::table('transaksis')
+            ->join('users', 'users.id', '=', 'transaksis.id_cus')
+            ->join('produks', 'produks.id', '=', 'transaksis.id_prod')            
+            ->where([
+            ['transaksis.id_cus','=',$idcus],
+            ['transaksis.status','=',1],
+            ])            
+            ->select('transaksis.*','transaksis.id', 'produks.harga_prod', 'produks.nama_prod', 'users.name', 'users.nohp', 'users.provinsi', 'users.kabupaten', 'users.kecamatan', 'users.desa','users.kodepos')
+            ->get(); 
+
+        return view('transaksi.keranjang',['pelanggan'=>$pelanggan,'kurir'=>$kurir, 'transaksi'=>$transaksi], ['count'=>$count])->with('keranjang',$keranjang);
+    
     }
     
     
@@ -67,35 +79,7 @@ class dashboardController extends Controller
         $data->idprod = $id;
         $data->idcus = $idcus;        
         $data->save();
-        return redirect('keranjang/'.$idcus);
-        
-//        $keranjang =  DB::table('carts')
-//            ->join('users', 'users.id', '=', 'carts.idcus')
-//            ->join('produks', 'produks.id', '=', 'carts.idprod')
-//            ->where('carts.idcus','=',$idcus)            
-//            ->select('produks.*', 'carts.*')
-//            ->get();
-//        
-//        
-//        $totalbayar =  DB::table('carts')
-//            ->join('users', 'users.id', '=', 'carts.idcus')
-//            ->join('produks', 'produks.id', '=', 'carts.idprod')
-//            ->where('carts.idcus','=',$idcus)                 
-//                ->sum('produks.harga_prod','*','carts.qtt');
-//        $count =0;
-//        foreach($keranjang as $total){
-//            $jumlah = $total->harga_prod * $total->qtt;
-//            $count = $count+$jumlah;
-//        }
-//        $kurir = DB::table('kurirs')->select('*')->get();
-//        return view('transaksi.keranjang', ['count'=>$count],['kurir'=>$kurir])->with('keranjang',$keranjang);
-//        
-//        $ProdDetail = Produk::where('id', $id)->first();         
-//        $pembeli = User::where('email', $session)->first(); 
-//	   return view('transaksi.beli')->with([
-//              'ProdDetail'=>$ProdDetail ,
-//               'pembeli'=>$pembeli,
-//           ]);
+        return redirect('keranjang/'.$idcus);        
     }
     public function keranjang($id, $user){
         $a=0;
