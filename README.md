@@ -25,3 +25,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+
+PANDUAN INSTALLASI APLIKASI
+software requirement
+	1. PHP Min v.6
+	2. IDE
+	3. composser
+	4. MYSQL
+Configurasi
+1. import file ol-on.sql ke database mysql
+2. jalankan script ini : php artisan serve
+dan selamat berselancar di OL-ON.

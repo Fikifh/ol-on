@@ -47,7 +47,7 @@
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="#prod">Our Produk</a></li>
             @if (Auth::guest())
-            <li><a href="{{url('/login') }}">Tagihan</a></li>
+            <li><a href="{{url('/login') }}">Transaksi</a></li>
             @else 
           <li><a href="{{ url('/struk/'.Auth::user()->id) }}">Tagihan</a></li>
             @endif
