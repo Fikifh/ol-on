@@ -13,7 +13,7 @@
 
 Route::get('/', 'dashboardController@home');
 Route::get('welcome', function(){
-   return view('welcome'); 
+   return view('test'); 
 });
 
 Route::post('login', 'Authentikasi@loginPost');
